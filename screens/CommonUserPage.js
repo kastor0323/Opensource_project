@@ -21,21 +21,28 @@ const CommonUserPage = () => {
     }
   };
 
-  const getTemperatureData = () => {
-    if (!weather || !weather.main) return null;
-    return {
-      labels: ['현재', '최고', '최저'],
-      datasets: [
-        {
-          data: [
-            weather.main.temp,
-            weather.main.temp_max,
-            weather.main.temp_min,
-          ],
-        },
-      ],
-    };
+ const getTemperatureData = () => {
+  const labels = ['9AM', '12PM', '3PM', '6PM', '9PM', '12AM'];
+  const temperatureData = [22, 24, 23, 25, 24, 22]; // 실제 데이터로 대체
+  const feelsLikeData = [20, 23, 21, 24, 22, 20]; // 체감 온도 데이터로 대체
+
+  return {
+    labels: labels,
+    datasets: [
+      {
+        data: temperatureData,
+        color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+        strokeWidth: 2,
+      },
+      {
+        data: feelsLikeData,
+        color: (opacity = 1) => `rgba(255, 0, 0, ${opacity})`, // 체감 온도 데이터는 빨간색으로 설정
+        strokeWidth: 2,
+      },
+    ],
   };
+};
+
 
   const fetchWeatherForDayOffset = (offset) => {
     setDayOffset(offset);

@@ -34,6 +34,7 @@ const WeatherDisplay = ({ weather, dayOffset, getTemperatureData, loading }) => 
           <Text style={styles.temperature}>현재 기온: {Math.round(weather.main.temp)}°C</Text>
           <Text style={styles.temperature}>최고 기온: {Math.round(weather.main.temp_max)}°C</Text>
           <Text style={styles.temperature}>최저 기온: {Math.round(weather.main.temp_min)}°C</Text>
+          <Text style={styles.temperature}>체감 온도: {Math.round(weather.main.feels_like)}°C</Text>
         </>
       );
     } else {
@@ -42,6 +43,7 @@ const WeatherDisplay = ({ weather, dayOffset, getTemperatureData, loading }) => 
         <>
           <Text style={styles.temperature}>최고 기온: {Math.round(weather.main.temp_max)}°C</Text>
           <Text style={styles.temperature}>최저 기온: {Math.round(weather.main.temp_min)}°C</Text>
+          <Text style={styles.temperature}>체감 온도: {Math.round(weather.main.feels_like)}°C</Text>
         </>
       );
     }

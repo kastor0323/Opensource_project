@@ -21,21 +21,36 @@ const BlindUserPage = () => {
     }
   };
 
-  const getTemperatureData = () => {
-    if (!weather || !weather.main) return null;
-    return {
-      labels: ['현재', '최고', '최저'],
-      datasets: [
-        {
-          data: [
-            weather.main.temp,
-            weather.main.temp_max,
-            weather.main.temp_min,
-          ],
-        },
-      ],
-    };
+ const getTemperatureData = () => {
+  if (!weather || !weather.main) return null;
+
+  const labels = [];
+  const data = [];
+
+  // 현재 온도 항목 추가
+  if (dayOffset === 0) {
+    labels.push('현재');
+    data.push(weather.main.temp);
+  }
+
+  // 최고, 최저 온도 항목 추가
+  labels.push('최고', '최저','체감');
+  data.push(weather.main.temp_max, weather.main.temp_min,weather.main.feels_like);
+
+
+  return {
+    labels: labels,
+    datasets: [
+      {
+        data: data,
+        color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`, // 데이터 색상 설정
+        strokeWidth: 2, // 선 두께 설정
+      },
+    ],
   };
+};
+
+
 
   const fetchWeatherForDayOffset = (offset) => {
     setDayOffset(offset);
