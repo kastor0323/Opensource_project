@@ -1,11 +1,6 @@
-# Sample Snack app
 
-Open the `App.js` file to start writing some code. You can preview the changes directly on your phone or tablet by scanning the **QR code** or use the iOS or Android emulators. When you're done, click **Save** and share the link!
+오픈소스인 OpenWeather API와 Image Expo snack에서 제공하는 라이브러리인 expo-location , expo speech를 이용하여 만든 날씨 프로그램이다.
 
-When you're ready to see everything that Expo provides (or if you want to use your own editor) you can **Download** your project and use it with [expo cli](https://docs.expo.dev/get-started/installation/#expo-cli)).
-
-All projects created in Snack are publicly available, so you can easily share the link to this project via link, or embed it on a web page with the `<>` button.
-
-If you're having problems, you can tweet to us [@expo](https://twitter.com/expo) or ask in our [forums](https://forums.expo.dev/c/expo-dev-tools/61) or [Discord](https://chat.expo.dev/).
-
-Snack is Open Source. You can find the code on the [GitHub repo](https://github.com/expo/snack).
+사용자 상태에 따라 버튼을 누르고 각 사용자 상태에 맞게 서비스를 제공한다.
+ 
+이 앱의 온도는 WeatherDisplay.js에서 구현되어 있고 값을 변경하기 원한다면 Math.round(weather.main.**) **부분을 https://openweathermap.org/api 에서 call함수를 보고 코드를 작성하면 바꿀 수 있다.

@@ -24,6 +24,16 @@ const WeatherDisplay = ({ weather, dayOffset, getTemperatureData, loading }) => 
       return `오늘 (${getDate()})`;
     }
   };
+  
+  const getLowestTemperature = (offset) => {
+  if (weather.list) {
+    const startIdx = offset * 8; // 날씨 데이터가 3시간 간격으로 제공된다고 가정하면 하루에 8개의 데이터 포인트가 있음
+    const endIdx = startIdx + 8;
+    const temperatures = weather.list.slice(startIdx, endIdx).map(entry => entry.main.temp_min);
+    return Math.min(...temperatures);
+  }
+  return null;
+};
 
   // 날씨 정보 표시
   const renderTemperatureInfo = () => {

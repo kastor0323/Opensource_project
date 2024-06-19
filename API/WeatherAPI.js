@@ -19,6 +19,7 @@ const fetchWeatherData = async (cityName, dayOffset, setWeather, setLoading) => 
     const response = await fetch(url);
     const data = await response.json();
 
+
     if (response.ok) {
       let weatherData;
       if (dayOffset > 0) {
